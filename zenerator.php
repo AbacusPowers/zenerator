@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Zenerator
-Version: 0.1-alpha
-Description: Functionality for 360 Zen site
+Version: 1.0
+Description: Adds portfolio projects post type and functionality to WordPress
 Author: Justin Maurer
 Author URI: http://360zen.com
-Plugin URI:
+Plugin URI: https://bitbucket.org/360zen/zenerator
 Text Domain: zenerator
 Domain Path: /languages
 */
@@ -30,6 +30,16 @@ function zenerator_deactivate() {
 }
 register_deactivation_hook( __FILE__, 'zenerator_deactivate' );
 
+/*************
+ * UPDATES via KERNL
+ *************/
+require 'plugin_update_check.php';
+$MyUpdateChecker = new PluginUpdateChecker_2_0 (
+    'https://kernl.us/api/v1/updates/565e6863b731728f79f6a4f6/',
+    __FILE__,
+    'zenerator',
+    1
+);
 
 /***************
 PROJECT FUNCTIONS

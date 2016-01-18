@@ -9,41 +9,38 @@
 add_action( 'init', 'register_post_types');
 function register_post_types()
 {
-
-    //listings
+    //projects (portfolio items)
     register_post_type('project',
-        // let's now add all the options for this post type
-        array('labels' => array(
-            'name' => __('Projects', 'zenerator'), /* This is the Title of the Group */
-            'singular_name' => __('Project', 'zenerator'), /* This is the individual type */
-            'all_items' => __('All Projects', 'zenerator'), /* the all items menu item */
-            'add_new' => __('Add New', 'zenerator'), /* The add new menu item */
-            'add_new_item' => __('Add New Project', 'zenerator'), /* Add New Display Title */
-            'edit' => __('Edit', 'zenerator'), /* Edit Dialog */
-            'edit_item' => __('Edit Project', 'zenerator'), /* Edit Display Title */
-            'new_item' => __('New Project', 'zenerator'), /* New Display Title */
-            'view_item' => __('View Project', 'zenerator'), /* View Display Title */
-            'search_items' => __('Search Projects', 'zenerator'), /* Search Custom Type Title */
-            'not_found' => __('Nothing found in the Database.', 'zenerator'), /* This displays if there are no entries yet */
-            'not_found_in_trash' => __('Nothing found in Trash', 'zenerator'), /* This displays if there is nothing in the trash */
-            'parent_item_colon' => 'Parent Projects:'
-        ), /* end of arrays */
-            'description' => __('Projects for the portfolio', 'zenerator'), /* Custom Type Description */
-            'public' => true,
-            'publicly_queryable' => true,
-            'exclude_from_search' => false,
-            'show_ui' => true,
-            'menu_position' => 5, /* this is what order you want it to appear in on the left hand side menu */
-            'menu_icon' => 'dashicons-format-video', /* the icon for the custom post type menu */
-            'rewrite' => array('slug' => 'project'), /* you can specify its url slug */
-            'has_archive' => 'projects', /* you can rename the slug here */
-            'capability_type' => 'post',
-            'hierarchical' => false,
-            /* the next one is important, it tells what's enabled in the post editor */
-            'supports' => array('title', 'editor', 'thumbnail', 'page-attributes', 'excerpt', 'revisions', 'sticky')
+        // If you get stuck, need some more detail, or are looking to go deeper, read the documentation here: https://codex.wordpress.org/Function_Reference/register_post_type */
+        array(
+            'labels' => array(
+                'name' => __('Projects', 'zenerator'), /* The group title. It shows in the main dashboard menu, alongside "Posts", "Media", "Pages", etc. */
+                'singular_name' => __('Project', 'zenerator'), /* The individual label. Usually the singular form. Displayed in the admin bar, under "+ New" */
+                'all_items' => __('All Projects', 'zenerator'), /* The 'all items' label. Displayed under the group name in the dashboard. */
+                'add_new' => __('Add New', 'zenerator'), /* The 'add new' menu item. Displayed under the 'all items' label and at the top of the page in the 'all items' view. */
+                'add_new_item' => __('Add New Project', 'zenerator'), /*  */
+                'edit_item' => __('Edit project', 'zenerator'), /* The header of the page when editing a post. */
+                'new_item' => __('New project', 'zenerator'), /* The header of the 'Add new' page. Displays when adding a new post. */
+                'view_item' => __('View project', 'zenerator'), /* View display title */
+                'search_items' => __('Search Projects', 'zenerator'), /* Search label for dashboard pages */
+                'not_found' => __('Nothing found in the Database.', 'zenerator'), /* This displays if there are no entries yet */
+                'not_found_in_trash' => __('Nothing found in Trash', 'zenerator'), /* This displays if there is nothing in the trash */
+                'parent_item_colon' => 'Parent Projects:' /* Parent label for hierarchical post types */
+            ), /* end of arrays */
+            'description' => __('Projects for the portfolio', 'zenerator'), /* A description of your post type */
+            'public' => true, /* If set to 'false', this will hide this post type from the public */
+            'publicly_queryable' => true, /* Sets whether the post type can be queried. Automatically false, if 'public' is false. */
+            'exclude_from_search' => false, /* Want to hide this post type from searches on your site? */
+            'show_ui' => true, /* If set to 'false', the dashboard UI won't be created. All management (creating/editing/deleting) would need to be done through code. */
+            'menu_position' => 5, /* This controls the order in the dashboard menu. 5 - below Posts, 10 - below Media, 15 - below Links, 20 - below Pages, 25 - below comments, 60 - below first separator, 65 - below Plugins, 70 - below Users, 75 - below Tools, 80 - below Settings, 100 - below second separator */
+            'menu_icon' => 'dashicons-format-video', /* Which icon should we use? Checkout your options here: https://developer.wordpress.org/resource/dashicons/#editor-code */
+            'rewrite' => array('slug' => 'project'), /* Will automatically inherit the post type label unless specified. */
+            'has_archive' => 'projects', /* If 'false', no archive will exist. If a string is given, it will set the slug of the archive page.  */
+            'capability_type' => 'post', /* This is related to user permissions and capabilities. Use 'post' or 'page' unless you are building custom capabilities. */
+            'hierarchical' => false, /* Can a post have a parent post? If so, use 'true'. */
+            'supports' => array('title', 'editor', 'thumbnail', 'page-attributes', 'excerpt', 'revisions', 'sticky') /* This sets which features are available to this post type. See https://codex.wordpress.org/Function_Reference/register_post_type#supports */
         ) /* end of options */
     ); /* end of register post type */
-
 }
 
 add_action( 'cmb2_admin_init', 'zenerator_metaboxes' );
@@ -94,6 +91,7 @@ function zenerator_metaboxes() {
             'CSS3'      => 'CSS3',
             'jQuery'    => 'jQuery',
             'Symfony2'  => 'Symfony2',
+            'WordPress' => 'WordPress',
             'Compass'   => 'Compass',
             'SASS'      => 'SASS',
             'Susy'      => 'Susy',

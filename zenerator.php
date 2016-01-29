@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Zenerator
-Version: 1.1.0
+Plugin URI: https://bitbucket.org/360zen/zenerator
+Version: 1.2.0
 Description: Adds portfolio projects post type and functionality to WordPress
 Author: Justin Maurer
 Author URI: http://360zen.com
-Plugin URI: https://bitbucket.org/360zen/zenerator
 Text Domain: zenerator
 Domain Path: /languages
 */

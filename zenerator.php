@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Zenerator
-Version: 1.0.0
+Version: 1.1.0
 Description: Adds portfolio projects post type and functionality to WordPress
 Author: Justin Maurer
 Author URI: http://360zen.com
